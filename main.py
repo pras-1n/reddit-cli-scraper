@@ -87,4 +87,4 @@ def main():
     pyperclip.copy(final_output)
     print("Success! The thread content has been copied to your clipboard. Just Ctrl+V to paste.")
 
-if __name__ == "__main__":
+  if __name__ == "__main__":
