@@ -17,10 +17,16 @@ sys.setrecursionlimit(10000)
 def get_thread_data(url):
     if not url.endswith('.json'):
         url += '.json'
-    headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36'}
+    
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36'
+    }
+    
     response = requests.get(url, headers=headers)
     if response.status_code != 200:
+        print(f"Error: Failed to retrieve data (Status Code: {response.status_code})")
         return None
+    
     return response.json()
 
 def parse_comments(comments, level=0):
@@ -36,7 +42,7 @@ def parse_comments(comments, level=0):
         return ""
 
     for child in children:
-        if child['kind'] == 't1':
+        if child['kind'] == 't1':  # t1 is a comment
             data = child['data']
             author = data.get('author', '[deleted]')
             body = data.get('body', '[deleted]')
@@ -54,15 +60,14 @@ def parse_comments(comments, level=0):
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python3 reddit_to_text.py <URL>")
+        print("Usage: python3 main.py <URL>")
         return
 
-    print("Fetching data... please wait.")
+    print("Fetching data from Reddit... please wait.")
     url = sys.argv[1]
     data = get_thread_data(url)
     
     if not data:
-        print("Error fetching data.")
         return
 
     post_data = data[0]['data']['children'][0]['data']
@@ -72,19 +77,17 @@ def main():
     op_text = post_data.get('selftext', "")
     op_author = post_data.get('author', "[deleted]")
 
-    # Build the final string variable
     final_output = ""
     final_output += f"TITLE: {title}\n"
     final_output += f"AUTHOR: {op_author}\n"
     final_output += "="*80 + "\n"
     final_output += op_text + "\n"
-    final_output += "="*80 + "\n"
-    final_output += "\nCOMMENTS:\n\n"
-    
+    final_output += "="*80 + "\n\n"
+    final_output += "COMMENTS:\n\n"
     final_output += parse_comments(comments_data)
 
-    # Copy to clipboard
     pyperclip.copy(final_output)
-    print("Success! The thread content has been copied to your clipboard. Just Ctrl+V to paste.")
+    print("\nSuccess! The thread content has been copied to your clipboard.")
 
-  if __name__ == "__main__":
+if __name__ == "__main__":
+    main()
