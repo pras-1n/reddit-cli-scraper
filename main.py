@@ -14,13 +14,6 @@ import pyperclip
 # Increases recursion depth for deep comment threads
 sys.setrecursionlimit(10000)
 
-import requests
-import json
-import sys
-import pyperclip  # Import the clipboard library
-
-sys.setrecursionlimit(10000)
-
 def get_thread_data(url):
     if not url.endswith('.json'):
         url += '.json'
