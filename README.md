@@ -17,28 +17,28 @@ You need Python 3 and the `xclip` tool for Linux clipboard access.
 sudo apt install xclip
 pip install requests pyperclip
 ```
+
+#Installation (Optional - Global Usage)
+
+1. **Clone the repository:**
+   ```
+   git clone https://github.com/pras-1n/reddit-cli-scraper.git
+   cd reddit-cli-scraper
+   ```
+
+2. **Install dependencies:**
+   ```
+   pip install -r requirements.txt
+   ```
+
 ## Usage
 
 Run the script with the Reddit URL as an argument:
 
-```bash
-python3 main.py "https://www.reddit.com/r/SomeThread/..."
 ```
-
+python3 main.py "https://www.reddit.com/r/CharacterRant/comments/1ppo5lf/..."
+```
+   
 ## License
 MIT
-
-#Installation (Optional - Global Usage)
-
-## Optional: Add to PATH (Linux/Mac)
-
-To run this tool from anywhere in your terminal:
-
-1. Make the script executable:
-   chmod +x main.py
-
-2. Create a symbolic link to your bin folder:
-   sudo ln -s $(pwd)/main.py /usr/local/bin/reddit-rip
-
-3. Now you can just type:
-   reddit-rip "https://reddit.com/..."
+```
