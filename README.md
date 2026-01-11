@@ -28,7 +28,7 @@ python3 main.py "https://www.reddit.com/r/SomeThread/..."
 ## License
 MIT
 
-##Installation (Optional - Global Usage)
+#Installation (Optional - Global Usage)
 
 ## Optional: Add to PATH (Linux/Mac)
 
