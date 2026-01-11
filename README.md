@@ -27,3 +27,18 @@ python3 main.py "https://www.reddit.com/r/SomeThread/..."
 
 ## License
 MIT
+
+##Installation (Optional - Global Usage)
+
+## Optional: Add to PATH (Linux/Mac)
+
+To run this tool from anywhere in your terminal:
+
+1. Make the script executable:
+   chmod +x main.py
+
+2. Create a symbolic link to your bin folder:
+   sudo ln -s $(pwd)/main.py /usr/local/bin/reddit-rip
+
+3. Now you can just type:
+   reddit-rip "https://reddit.com/..."
