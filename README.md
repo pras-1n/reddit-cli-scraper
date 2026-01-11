@@ -18,7 +18,7 @@ sudo apt install xclip
 pip install requests pyperclip
 ```
 
-#Installation (Optional - Global Usage)
+# Installation (Optional - Global Usage)
 
 1. **Clone the repository:**
    ```
@@ -38,6 +38,25 @@ Run the script with the Reddit URL as an argument:
 ```
 python3 main.py "https://www.reddit.com/r/CharacterRant/comments/1ppo5lf/..."
 ```
+
+## Optional: Global Usage (Linux/Mac)
+
+To run this tool from anywhere in your terminal:
+
+1. **Make the script executable:**
+   ```
+   chmod +x main.py
+   ```
+
+2. **Create a symbolic link:**
+   ```
+   sudo ln -s $(pwd)/main.py /usr/local/bin/reddit-rip
+   ```
+
+3. **New Usage:**
+   ```
+   reddit-rip "YOUR_URL_HERE"
+   ```
    
 ## License
 MIT
